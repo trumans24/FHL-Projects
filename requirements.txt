@@ -1,0 +1,11 @@
+numpy
+pandas
+plotly
+nbformat
+ipykernel
+ipywidgets
+opencv-python
+# splashlab
+pyserial
+crc
+kaleido
