@@ -1,1 +1,5 @@
-/.venv
+/.venv 
+/Cats_data
+/Jacobs_Data
+/Miguels_Data
+/__pycache__
