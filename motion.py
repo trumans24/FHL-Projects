@@ -61,8 +61,8 @@ def fish_motion(arm:XArmAPI, amplitude, frequency, yaw_amplitude, yaw_frequency,
     t0 = t = time.perf_counter()
     while time.perf_counter()-t0 < duration:
         t = time.perf_counter()-t0
-        i = next_cmd(t, path_function=path)
-        j = next_cmd(t, yaw_function=yaw)
+        i = next_cmd(t, path)
+        j = next_cmd(t, yaw)
         arm.set_servo_cartesian([start_x, start_y+i, start_z, start_roll, start_pitch, start_yaw+j])
         steps.append([t, i])
 
@@ -70,8 +70,8 @@ def fish_motion(arm:XArmAPI, amplitude, frequency, yaw_amplitude, yaw_frequency,
     while abs(current_y - start_y) > 0.1:
         _, (current_x, current_y, current_z, current_roll, current_pitch, current_yaw) = arm.get_position()
         t = time.perf_counter()-t0
-        i = next_cmd(t, path_function=path)
-        j = next_cmd(t, yaw_function=yaw)
+        i = next_cmd(t, path)
+        j = next_cmd(t, yaw)
         arm.set_servo_cartesian([start_x, start_y+i, start_z, start_roll, start_pitch, start_yaw+j])
         steps.append([t, i])
     _, (current_x, current_y, current_z, current_roll, current_pitch, current_yaw) = arm.get_position()
